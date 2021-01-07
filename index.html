@@ -11,20 +11,23 @@
     <header>
         <div class="container">
             <h1 class="display-6">Weather Dashboard</h1>
-            <p class="lead">Find The Weather In Your Chosen City</p>
+            <p class="lead">Weather from around the world straight to You!</p>
         </div>
     </header>
-  
+
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <h2>Search for a City:</h2>
-                
+                <form id="search-form">
+                    <h2>Seach for a City:</h2>
+                    <!-- <label for="search-input">Search for a City:</label> -->
+                    <input type="search" name="add-city" id="search-input"/>
+                    <input id="add-city" name="add-city-button" type="submit" value="Search">
+                    <div id="cities-viewed"></div>
+                </form>
             </div>
             <div class="col">
-                <div class="row" id="currentCity">
-                    <h2></h2>
-                </div>
+                <div class="row" id="currentCity"></div>
                 <div class="row" id="temp">
                     <p>Temperature: </p>
                 </div>
@@ -37,7 +40,9 @@
                 <div class="row" id="UVIndex">
                     <p>UV Index:    </p>
                 </div>
-
+                <div class="row" id="5Day">
+                    <p>5 - Day Forecast:</p>
+                </div>
             </div>
         </div>
     </div>
