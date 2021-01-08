@@ -1,3 +1,4 @@
+/* Formatting and styles for ELEMENTS */
 header {
   text-align: center;
   background-color: rgb(29, 29, 29);
@@ -6,15 +7,23 @@ header {
   border-bottom: 10px solid black;
 }
 
+/* Formatting and styles for CLASSES */
 .row {
-  /* white-space: pre-wrap; */
   border: 4px solid black;
 }
 
 .col {
-  border: 2px solid black;
+  border: 1px solid black;
 }
 
 .col-sm {
-  border: 2px solid black;
+  border: 1px solid black;
+}
+
+.forecast {
+  text-align: left;
+  background-color: rgb(32, 32, 109);
+  color: white;
+  border: transparent;
+  margin: 3px;
 }
