@@ -15,17 +15,19 @@
         </div>
     </header>
 
+    <!-- Main body/content is in a container -->
     <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
+        <div class="row"> <!-- Main Row for the entire content -->
+            <div class="col-sm-3"> <!--Left side column to hold searched cities and buttons-->
                 <form id="search-form">
                     <h2>Seach for a City:</h2>
-                    <!-- <label for="search-input">Search for a City:</label> -->
+                    <!-- Input button here -->
                     <input type="search" name="add-city" id="search-input"/>
                     <input id="add-city" name="add-city-button" type="submit" value="Search">
                     <div id="cities-viewed"></div>
                 </form>
             </div>
+            <!-- Right side column to display all info about city searched -->
             <div class="col">
                 <div class="row" id="currentCity"></div>
                 <div class="row" id="temp">
@@ -43,36 +45,37 @@
                 <div class="row" id="5Day">
                     <h3>5 - Day Forecast:</h3>
                 </div>
+                <!-- All empty Divs to have 5-day forecast info passed into -->
                 <div class="row">
-                    <div class="col-auto forecast">
+                    <div class="col forecast">
                         <div id="0-date"></div>
                         <div id="0-icon"></div>
                         <div id="0-tempHigh"></div>
                         <div id="0-tempLow"></div>
                         <div id="0-humid"></div>
                     </div>
-                    <div class="col-auto forecast">
+                    <div class="col forecast">
                         <div id="8-date"></div>
                         <div id="8-icon"></div>
                         <div id="8-tempHigh"></div>
                         <div id="8-tempLow"></div>
                         <div id="8-humid"></div>
                     </div>
-                    <div class="col-auto forecast">
+                    <div class="col forecast">
                         <div id="16-date"></div>
                         <div id="16-icon"></div>
                         <div id="16-tempHigh"></div>
                         <div id="16-tempLow"></div>
                         <div id="16-humid"></div>
                     </div>
-                    <div class="col-auto forecast">
+                    <div class="col forecast">
                         <div id="24-date"></div>
                         <div id="24-icon"></div>
                         <div id="24-tempHigh"></div>
                         <div id="24-tempLow"></div>
                         <div id="24-humid"></div>
                     </div>
-                    <div class="col-auto forecast">
+                    <div class="col forecast">
                         <div id="32-date"></div>
                         <div id="32-icon"></div>
                         <div id="32-tempHigh"></div>
@@ -84,6 +87,11 @@
         </div>
     </div>
 
+    <div class="container">
+        <footer class="footer mt-auto py-3">
+            This is a footer
+        </footer>
+    </div>
 
     <!-- Script Links for all Java Sources -->
     
