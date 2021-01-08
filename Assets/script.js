@@ -66,7 +66,7 @@ function getCurrentWeather(searchTerm) {
         const currentIcon = "http://openweathermap.org/img/wn/" + iconInfo +"@2x.png";
 
         // Passing the given response information to the correct location in the HTML code
-        $("#currentCity").html("<h2>" + response.name + " (" + date + ") " + "<img src=" + currentIcon + "></h1>");
+        $("#currentCity").html("<h2>" + response.name + " (" + date.toLocaleDateString() + ") " + "<img src=" + currentIcon + "></h1>");
         $("#temp").text("Temperature: " + response.main.temp + " °F  " + "(Feels like: " + response.main.feels_like + " °F)");
         $("#humidity").text("Humidity: " + response.main.humidity + " %");
         $("#windSpeed").text("Wind Speed: " + response.wind.speed + " MPH");
@@ -101,7 +101,7 @@ function getUVIndex(lat, lon) {
 
 // AJAX function/call to get the 5-Day Forcast from the OpenWeather API
 function get5Day(searchTerm) {
-    let fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=" + APIKey;
+    let fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=" + APIKey + "&units=imperial";
     console.log("Below should be the 5-Day Info");
     
     $.ajax({
@@ -112,10 +112,51 @@ function get5Day(searchTerm) {
     .then(function(response){
         console.log(response);
 
+        // Function to retrieve response info and pass it to the appropriate HTML location
+        for (let index = 0; index < response.list.length; index++) {
+            // const fiveDayInfo = response.list[index];
+            // console.log(fiveDayInfo);
+            const unixTime = response.list[index].dt;
+            const date = new Date(unixTime*1000);
+            const iconInfo = response.list[index].weather[0].icon;
+            const currentIcon = "http://openweathermap.org/img/wn/" + iconInfo +".png";
+            const tempMax = response.list[index].main.temp_max;
+            const tempLow = response.list[index].main.temp_min;
+            const humid5Day = response.list[index].main.humidity;
+            if (index === 0) {
+                $("#0-date").html('<h5>' + date.toLocaleDateString() + '</h5>');
+                $('#0-icon').html('<img src=' + currentIcon + '>');
+                $('#0-tempHigh').html('<p>High: ' + tempMax + ' °F</p>');
+                $('#0-tempLow').html('<p>Low: ' + tempLow + ' °F</p>');
+                $('#0-humid').html('<p>Humidity: ' + humid5Day + ' %</p>');
+            } else if (index === 8) {
+                $("#8-date").html('<h5>' + date.toLocaleDateString() + '</h5>');
+                $('#8-icon').html('<img src=' + currentIcon + '>');
+                $('#8-tempHigh').html('<p>High: ' + tempMax + ' °F</p>');
+                $('#8-tempLow').html('<p>Low: ' + tempLow + ' °F</p>');
+                $('#8-humid').html('<p>Humidity: ' + humid5Day + ' %</p>');
+            } else if (index === 16) {
+                $("#16-date").html('<h5>' + date.toLocaleDateString() + '</h5>');
+                $('#16-icon').html('<img src=' + currentIcon + '>');
+                $('#16-tempHigh').html('<p>High: ' + tempMax + ' °F</p>');
+                $('#16-tempLow').html('<p>Low: ' + tempLow + ' °F</p>');
+                $('#16-humid').html('<p>Humidity: ' + humid5Day + ' %</p>');
+            } else if (index === 24) {
+                $("#24-date").html('<h5>' + date.toLocaleDateString() + '</h5>');
+                $('#24-icon').html('<img src=' + currentIcon + '>');
+                $('#24-tempHigh').html('<p>High: ' + tempMax + ' °F</p>');
+                $('#24-tempLow').html('<p>Low: ' + tempLow + ' °F</p>');
+                $('#24-humid').html('<p>Humidity: ' + humid5Day + ' %</p>');
+            } else if (index === 32) {
+                $("#32-date").html('<h5>' + date.toLocaleDateString() + '</h5>');
+                $('#32-icon').html('<img src=' + currentIcon + '>');
+                $('#32-tempHigh').html('<p>High: ' + tempMax + ' °F</p>');
+                $('#32-tempLow').html('<p>Low: ' + tempLow + ' °F</p>');
+                $('#32-humid').html('<p>Humidity: ' + humid5Day + ' %</p>');
+            }
+        }
     });
 
 }
-
-
 
 });
