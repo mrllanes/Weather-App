@@ -7,6 +7,18 @@ header {
   border-bottom: 10px solid black;
 }
 
+footer {
+  background-color: rgb(65, 65, 65);
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: white;
+  width: 100vw;
+}
+
 /* Formatting and styles for CLASSES */
 .row {
   border: 3px solid black;
@@ -26,4 +38,10 @@ header {
   color: white;
   border: transparent;
   margin: 3px;
+}
+
+/* Formatting and styles for ID tags */
+#page-container {
+  position: relative;
+  min-height: 100vh;
 }
