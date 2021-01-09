@@ -156,7 +156,6 @@ function get5Day(searchTerm) {
             }
         }
     });
-
 }
 
 });
