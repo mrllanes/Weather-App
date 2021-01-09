@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 //Global Variables
 let APIKey = "21152b77f6ec2e79fa6cbfafe69cae6b";
-const citiesSearched = ['Houston', 'San Antonio'];
+const citiesSearched = ['Houston', 'New York', 'Los Angeles'];
 
 // Function to create the "Searched" cities and saving them in an active button list
 function createCityBtns() {
@@ -42,7 +42,6 @@ $('body').on('click', '.city', function () {
 
 // AJAX function/call to the OpenWeatherMap API
 function getCurrentWeather(searchTerm) {
-
     let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchTerm + "&appid=" + APIKey + "&units=imperial";
 
     $.ajax({
@@ -51,12 +50,10 @@ function getCurrentWeather(searchTerm) {
     })
 
     .then(function(response){
-        console.log(queryURL);
-        console.log(response);
-
+        // console.log(queryURL);
+        // console.log(response);
         let lat = response.coord.lat;
         let lon = response.coord.lon;
-
 
         const unixTime = response.dt;
         const date = new Date(unixTime*1000);
@@ -110,7 +107,7 @@ function get5Day(searchTerm) {
     })
 
     .then(function(response){
-        console.log(response);
+        // console.log(response);
 
         // Function to retrieve response info and pass it to the appropriate HTML location
         for (let index = 0; index < response.list.length; index++) {
