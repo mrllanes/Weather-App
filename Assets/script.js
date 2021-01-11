@@ -60,7 +60,7 @@ function getCurrentWeather(searchTerm) {
         console.log(date.toLocaleDateString("en-US"));
         const iconInfo = response.weather[0].icon;
         console.log(iconInfo);
-        const currentIcon = "http://openweathermap.org/img/wn/" + iconInfo +"@2x.png";
+        const currentIcon = "https://openweathermap.org/img/wn/" + iconInfo +"@2x.png";
 
         // Passing the given response information to the correct location in the HTML code
         $("#currentCity").html("<h2>" + response.name + " (" + date.toLocaleDateString() + ") " + "<img src=" + currentIcon + "></h1>");
@@ -75,7 +75,7 @@ function getCurrentWeather(searchTerm) {
 
 // AJAX function/call to get the UV Index from the OpenWeather API
 function getUVIndex(lat, lon) {
-    let UVURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+    let UVURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
 
     $.ajax({
         url: UVURL,
@@ -98,7 +98,7 @@ function getUVIndex(lat, lon) {
 
 // AJAX function/call to get the 5-Day Forcast from the OpenWeather API
 function get5Day(searchTerm) {
-    let fiveDay = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=" + APIKey + "&units=imperial";
+    let fiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchTerm + "&appid=" + APIKey + "&units=imperial";
     console.log("Below should be the 5-Day Info");
     
     $.ajax({
@@ -116,7 +116,7 @@ function get5Day(searchTerm) {
             const unixTime = response.list[index].dt;
             const date = new Date(unixTime*1000);
             const iconInfo = response.list[index].weather[0].icon;
-            const currentIcon = "http://openweathermap.org/img/wn/" + iconInfo +".png";
+            const currentIcon = "https://openweathermap.org/img/wn/" + iconInfo +".png";
             const tempMax = response.list[index].main.temp_max;
             const tempLow = response.list[index].main.temp_min;
             const humid5Day = response.list[index].main.humidity;
